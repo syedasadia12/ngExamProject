@@ -1,0 +1,69 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "question": "1) Which of the following option leads to the portability and security of Java?        ",
+            "options": [
+                "Bytecode is executed by JVM      ",
+                "numbThe applet makes the Java code secure and portable      ",
+                "Use of exception handling      ",
+                "Dynamic binding between objects "
+            ],
+            "answer": 1
+        },
+        {
+            "id": 2,
+            "question": "2) Which of the following is not a Java features?            ",
+            "options": [
+                "Dynamic",
+                "Architecture Neutral    ",
+                " None ",
+                "Object-oriented                "
+            ],
+            "answer": 3
+        },
+        {
+            "id": 3,
+            "question": "2) Which statement is true regarding an object?            ",
+            "options": [
+                " An object is not an instance of a class.",
+                " An object is an instance of a class",
+                " An object is a variable",
+                "An object is a variable"
+            ],
+            "answer": 2
+        },
+        {
+            "id": 4,
+            "question": "Object-oriented inheritance models the",
+            "options": [
+                " “is a kind of” relationship",
+                " “has a” relationship",
+                "“contains” of relationship.",
+                "“want to be” relationship"
+            ],
+            "answer": 1
+        },
+        {
+            "id": 5,
+            "question": "Polymorphism",
+            "options": [
+                "Is not supported by Java",
+                "Simplifies code maintenanc     ",
+                " An object is a variable",
+                "Refers to the ability of two or more objects belonging to different classes to respond to exactly the same message in different class-specific ways and simplifies code maintenance."
+            ],
+            "answer": 4
+        },
+        {
+            "id": 4,
+            "question": " Can we compare int variable with a boolean variable?",
+            "options": [
+                " true",
+                " “false",
+               
+            ],
+            "answer": 2
+        }
+    ]
+}

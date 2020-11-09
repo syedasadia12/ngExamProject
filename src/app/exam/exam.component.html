@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<div *ngIf="!complete; then incomplete else complete"></div>
+
+
+<ng-template #incomplete>
+
+    <form #questionRef="ngForm" (ngSubmit)="checkAns(questionRef.value)" autocomplete="off" novalidate>
+        <h2>Multiple Choice Questions {{my_question.id}}/{{questions.length}}</h2>
+        <p>{{my_question.question}}</p>
+        
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action list-group-item-alice"
+
+                *ngFor="let option of my_question.option;let i=index"><label class="ml-2 w-100">
+                    <input type="radio" [checked]="i+1==my_question.selected" [name]="my_question.id" [value]="i+1" [(ngModel)]="my_question.selected"> {{option}}</label></li>
+        </ul>
+        <small class="text-danger" *ngIf="invalid"> Please select something</small>
+        
+        <input *ngIf="hasNextQuestion" class="float-right btn btn-primary ml-2" type="button" value="Next Question" (click)="checkAns(questionRef.value)">
+        <input *ngIf="!hasNextQuestion" class="float-right btn btn-success ml-2" type="submit" value="Submit">
+        <input *ngIf="my_question.id!=1" class="float-left btn btn-primary" type="button" value="Previous Question" (click)="previous()">
+        
+    </form>
+
+</ng-template>
+
+<ng-template #complete>
+    <div id="top" class="text-center">
+        <h2>Exam compeleted</h2>
+        <h4 class="mb-5"> {{correct}} out of {{questions.length}} questions were correct</h4>
+        <button class="float-right btn btn-warning" (click)="resetAll()">Restart</button>
+    </div>
+
+    <form *ngFor="let question of questions" #questionRef="ngForm" autocomplete="on"
+        novalidate>
+        <h2>Question {{question.id}}/{{questions.length}}</h2>
+        <p>{{question.question}}</p>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-action" *ngFor="let option of question.options;let i=index"
+                [ngClass]="{'list-group-item-danger':i+1==question.selected && question.selected!=question.answer,'list-group-item-success':i+1==question.answer,'list-group-item-alice':i+1!=question.selected && i+1!=question.answer}">
+                <label class="ml-2 w-100">
+                    <input type="radio" [name]="question.id" [value]="i+1" [checked]="question.selected==(i+1)"
+                        disabled> {{option}}</label></li>
+        </ul>
+    </form>
+    
+</ng-template>
+
+</body>
+</html>
